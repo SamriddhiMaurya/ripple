@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Growing Impact: A Ripple Effect</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2c2f33;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 24px;
+            color: #ffa500;
+            margin-bottom: 0;
+        }
+        h2 {
+            font-size: 48px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        .description {
+            max-width: 800px;
+            margin-bottom: 40px;
+            line-height: 1.5;
+        }
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: nowrap;
+            margin-bottom: 40px;
+            overflow: hidden;
+            position: relative;
+            padding-top: 40px;
+        }
+        .point {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            width: 22%;
+            margin-bottom: 20px;
+            transition: opacity 0.5s ease;
+            position: relative;
+        }
+        .circle {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ffa500, #ff4500);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .circle::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            width: 2px;
+            height: 40px;
+            background-color: #ffa500;
+        }
+        .point-content {
+            text-align: center;
+        }
+        .percentage {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .navigation {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+        .nav-button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            margin-left: 10px;
+            font-size: 24px;
+            color: #ffffff;
+        }
+        .nav-prev {
+            background-color: #808080;
+        }
+        .nav-next {
+            background-color: #ffa500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Our Growing Impact</h1>
+        <h2>A Ripple Effect</h2>
+        <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p>
+        
+        <div class="timeline" id="timeline">
+            <div class="point" data-index="0">
+                <div class="circle">01</div>
+                <div class="point-content">
+                    <div class="percentage">100%</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+            <div class="point" data-index="1">
+                <div class="circle">02</div>
+                <div class="point-content">
+                    <div class="percentage">100%</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+            <div class="point" data-index="2">
+                <div class="circle">03</div>
+                <div class="point-content">
+                    <div class="percentage">100%</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+            <div class="point" data-index="3">
+                <div class="circle">04</div>
+                <div class="point-content">
+                    <div class="percentage">100%</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+            <div class="point" data-index="4">
+                <div class="circle">05</div>
+                <div class="point-content">
+                    <div class="percentage">100%</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+            <div class="point" data-index="5">
+                <div class="circle">06</div>
+                <div class="point-content">
+                    <div class="percentage">100%</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+            <div class="point" data-index="6">
+                <div class="circle">07</div>
+                <div class="point-content">
+                    <div class="percentage">100%</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="navigation">
+            <div class="nav-button nav-prev" onclick="prevPoint()">&#8592;</div>
+            <div class="nav-button nav-next" onclick="nextPoint()">&#8594;</div>
+        </div>
+    </div>
+
+    <script>
+        const points = document.querySelectorAll('.point');
+        let currentStartIndex = 0;
+        const pointsToShow = 4;
+
+     
+        for (let i = currentStartIndex; i < currentStartIndex + pointsToShow; i++) {
+            points[i].style.display = 'flex';
+        }
+
+        function nextPoint() {
+            if (currentStartIndex + pointsToShow < points.length) {
+                points[currentStartIndex].style.display = 'none';
+                currentStartIndex++;
+                points[currentStartIndex + pointsToShow - 1].style.display = 'flex';
+            }
+        }
+
+        function prevPoint() {
+            if (currentStartIndex > 0) {
+                points[currentStartIndex + pointsToShow - 1].style.display = 'none';
+                currentStartIndex--;
+                points[currentStartIndex].style.display = 'flex';
+            }
+        }
+    </script>
+</body>
+</html>
